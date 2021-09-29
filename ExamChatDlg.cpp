@@ -26,11 +26,13 @@ CExamChatDlg::CExamChatDlg(CWnd* pParent /*=nullptr*/)
 void CExamChatDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_LIST_CHAT, m_chat_list);
 }
 
 BEGIN_MESSAGE_MAP(CExamChatDlg, CDialogEx)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BUTTON_ADD, &CExamChatDlg::OnBnClickedButtonAdd)
 END_MESSAGE_MAP()
 
 
@@ -86,3 +88,11 @@ HCURSOR CExamChatDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CExamChatDlg::OnBnClickedButtonAdd()
+{
+	// TODO: Add your control notification handler code here
+	CString str;
+	GetDlgItemText(IDC_EDIT_CHAT, str);
+}
