@@ -93,6 +93,16 @@ HCURSOR CExamChatDlg::OnQueryDragIcon()
 void CExamChatDlg::OnBnClickedButtonAdd()
 {
 	// TODO: Add your control notification handler code here
+	
 	CString str;
+	// IDC_EDIT_CHAT Control에 입력된 문자열을 str에 복사
 	GetDlgItemText(IDC_EDIT_CHAT, str);
+	// 목록의 가장 마지막에 문자열 추가
+	// Insert string이 반환하는 값은 추가된 위치
+	int index = m_chat_list.InsertString(-1, str);
+	// 문자열 추가된 위치 커서 표시
+	m_chat_list.SetCurSel(index);
+
+	// IDC_EDIT_CHAT에 입력된 문자 지우기
+	SetDlgItemText(IDC_EDIT_CHAT, L"");
 }
